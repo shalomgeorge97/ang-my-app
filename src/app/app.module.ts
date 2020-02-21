@@ -3,10 +3,11 @@ import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 import { CustomerModule } from "./customers/customers.module";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CustomerModule],
+  imports: [BrowserModule, CustomerModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })
