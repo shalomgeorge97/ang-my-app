@@ -9,21 +9,24 @@
       <th>Order Total</th>
     </tr>
   </thead>
-  <tr>
-    <td>
-      <a> </a>
+  <tr *ngFor="let cust of filteredCustomers">
+    <td (click)="sort('name')">
+      <a> {{ cust.name | titlecase }} </a>
     </td>
-    <td></td>
-    <td></td>
+    <td (click)="sort('city')">{{ cust.city }}</td>
+    <td (click)="sort('orderTotal')">
+      {{ cust.orderTotal | currency: "USD" }}
+    </td>
   </tr>
-  <tr>
+
+  <tr *ngIf="filteredCustomers && filteredCustomers.length">
     <td colspan="2">&nbsp;</td>
-    <td></td>
+    <td>{{ customersOrderTotal | currency: "USD" }}</td>
   </tr>
-  <tr>
+  <tr *ngIf="!filteredCustomers || !filteredCustomers.length">
     <td colspan="4">No customers found</td>
   </tr>
 </table>
 
-Number of Customers:
+Number of Customers: {{ customers.length }}
 <br />
